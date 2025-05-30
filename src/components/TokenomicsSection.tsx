@@ -44,7 +44,7 @@ export default function TokenomicsSection() {
           
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {utilities.map((utility, index) => (
+            {utilities.map((utility, _) => (
               <div
                 key={utility.id}
                 className="group relative"

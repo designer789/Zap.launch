@@ -10,44 +10,44 @@ declare global {
       ready: (callback: () => void) => void;
     };
   }
-  
-  namespace JSX {
-    interface IntrinsicElements {
-      'gecko-coin-list-widget': {
-        locale?: string;
-        'dark-mode'?: string;
-        outlined?: string;
-        'coin-ids'?: string;
-        'initial-currency'?: string;
-      };
-      'gecko-coin-price-chart-widget': {
-        locale?: string;
-        'dark-mode'?: string;
-        outlined?: string;
-        'coin-id'?: string;
-        'initial-currency'?: string;
-        width?: string;
-      };
-      'gecko-coin-price-static-headline-widget': {
-        locale?: string;
-        'dark-mode'?: string;
-        outlined?: string;
-        'coin-ids'?: string;
-        'initial-currency'?: string;
-      };
-    }
+}
+
+// Define custom JSX elements for CoinGecko widgets
+declare global {
+  interface IntrinsicElements {
+    'gecko-coin-list-widget': {
+      locale?: string;
+      'dark-mode'?: string;
+      outlined?: string;
+      'coin-ids'?: string;
+      'initial-currency'?: string;
+    };
+    'gecko-coin-price-chart-widget': {
+      locale?: string;
+      'dark-mode'?: string;
+      outlined?: string;
+      'coin-id'?: string;
+      'initial-currency'?: string;
+      width?: string;
+    };
+    'gecko-coin-price-static-headline-widget': {
+      locale?: string;
+      'dark-mode'?: string;
+      outlined?: string;
+      'coin-ids'?: string;
+      'initial-currency'?: string;
+    };
   }
 }
 
 interface FloatingCardsProps {
-  mousePosition: { x: number; y: number };
-  getParallaxTransform: (intensity: number, rotation: number) => {
+  getParallaxTransform: (intensity: number) => {
     transform: string;
     transition: string;
   };
 }
 
-export default function FloatingCards({ mousePosition, getParallaxTransform }: FloatingCardsProps) {
+export default function FloatingCards({ getParallaxTransform }: FloatingCardsProps) {
 
   useEffect(() => {
     // Load Twitter widgets script
@@ -110,85 +110,85 @@ export default function FloatingCards({ mousePosition, getParallaxTransform }: F
       {/* Small glowing orbs - visible on all screens but scaled */}
       <div 
         className="absolute top-[15%] left-[35%] w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white/20 blur-sm"
-        style={getParallaxTransform(8, 0)}
+        style={getParallaxTransform(8)}
       />
       <div 
         className="absolute top-[70%] right-[40%] w-4 h-4 sm:w-6 sm:h-6 rounded-full bg-blue-400/30 blur-sm"
-        style={getParallaxTransform(12, 0)}
+        style={getParallaxTransform(12)}
       />
       <div 
         className="absolute bottom-[60%] left-[70%] w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-full bg-purple-400/20 blur-sm"
-        style={getParallaxTransform(6, 0)}
+        style={getParallaxTransform(6)}
       />
       
       {/* Geometric shapes - hidden on mobile, progressively larger */}
       <div 
         className="absolute top-[25%] right-[15%] w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 border border-white/10 rotate-45 hidden sm:block"
-        style={getParallaxTransform(10, 0)}
+        style={getParallaxTransform(10)}
       />
       <div 
         className="absolute bottom-[40%] left-[15%] w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 border border-gray-400/20 rounded-full hidden sm:block"
-        style={getParallaxTransform(14, 0)}
+        style={getParallaxTransform(14)}
       />
       <div 
         className="absolute top-[60%] left-[40%] w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-br from-white/10 to-transparent rotate-12 hidden sm:block"
-        style={getParallaxTransform(9, 0)}
+        style={getParallaxTransform(9)}
       />
       
       {/* Floating lines - hidden on mobile */}
       <div 
         className="absolute top-[80%] right-[30%] w-20 h-1 sm:w-24 sm:h-1 md:w-32 md:h-1 bg-gradient-to-r from-transparent via-white/20 to-transparent rotate-12 hidden md:block"
-        style={getParallaxTransform(7, 0)}
+        style={getParallaxTransform(7)}
       />
       <div 
         className="absolute top-[20%] left-[60%] w-16 h-1 sm:w-20 sm:h-1 md:w-24 md:h-1 bg-gradient-to-r from-transparent via-blue-400/30 to-transparent -rotate-45 hidden md:block"
-        style={getParallaxTransform(11, 0)}
+        style={getParallaxTransform(11)}
       />
       
       {/* Larger glowing elements - scaled responsively */}
       <div 
         className="absolute bottom-[20%] right-[60%] w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-white/10 to-transparent blur-md"
-        style={getParallaxTransform(5, 0)}
+        style={getParallaxTransform(5)}
       />
       <div 
         className="absolute top-[40%] right-[80%] w-8 h-8 sm:w-10 sm:h-10 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-purple-400/15 to-transparent blur-sm hidden sm:block"
-        style={getParallaxTransform(13, 0)}
+        style={getParallaxTransform(13)}
       />
       
       {/* Subtle triangular shapes - hidden on mobile */}
       <div 
         className="absolute top-[50%] left-[25%] w-0 h-0 border-l-6 border-r-6 border-b-8 sm:border-l-8 sm:border-r-8 sm:border-b-12 border-transparent border-b-white/10 hidden sm:block"
-        style={getParallaxTransform(16, 0)}
+        style={getParallaxTransform(16)}
       />
       <div 
         className="absolute bottom-[70%] right-[20%] w-0 h-0 border-l-6 border-r-6 border-t-8 sm:border-l-8 sm:border-r-8 sm:border-t-12 border-transparent border-t-blue-400/20 rotate-180 hidden sm:block"
-        style={getParallaxTransform(4, 0)}
+        style={getParallaxTransform(4)}
       />
       
       {/* Additional floating dots - scaled */}
       <div 
         className="absolute top-[35%] left-[75%] w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-white/30"
-        style={getParallaxTransform(18, 0)}
+        style={getParallaxTransform(18)}
       />
       <div 
         className="absolute bottom-[45%] right-[85%] w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 rounded-full bg-blue-300/20"
-        style={getParallaxTransform(3, 0)}
+        style={getParallaxTransform(3)}
       />
       
       {/* Floating hexagonal shapes - hidden on mobile */}
       <div 
         className="absolute top-[75%] left-[55%] w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 border border-white/15 rotate-45 transform skew-x-12 hidden sm:block"
-        style={getParallaxTransform(8, 0)}
+        style={getParallaxTransform(8)}
       />
       
       {/* More glowing orbs - scaled */}
       <div 
         className="absolute bottom-[80%] right-[50%] w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-cyan-400/25 blur-sm"
-        style={getParallaxTransform(15, 0)}
+        style={getParallaxTransform(15)}
       />
       <div 
         className="absolute top-[85%] left-[30%] w-5 h-5 sm:w-6 sm:h-6 md:w-9 md:h-9 rounded-full bg-indigo-400/20 blur-sm"
-        style={getParallaxTransform(7, 0)}
+        style={getParallaxTransform(7)}
       />
 
       {/* Main Content Cards */}
@@ -196,7 +196,7 @@ export default function FloatingCards({ mousePosition, getParallaxTransform }: F
       {/* Top Left - Portrait 3:4 */}
       <div 
         className="absolute top-[14%] left-[8%] w-[300px] sm:w-[400px] lg:w-[500px] h-auto rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-white/10 backdrop-blur-sm shadow-2xl pointer-events-none hidden xl:block"
-        style={getParallaxTransform(20, 0)}
+        style={getParallaxTransform(20)}
       >
         <div className="overflow-hidden rounded-xl">
           {React.createElement('gecko-coin-price-static-headline-widget', {
@@ -213,7 +213,7 @@ export default function FloatingCards({ mousePosition, getParallaxTransform }: F
       {/* Top Center - Landscape 4:3 */}
       <div 
         className="absolute top-[5%] left-[30%] sm:left-[35%] lg:left-[45%] w-auto h-auto rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-white/10 backdrop-blur-sm hover:scale-105 shadow-2xl hidden xl:block"
-        style={getParallaxTransform(15, 0)}
+        style={getParallaxTransform(15)}
       >
         <div className="overflow-hidden rounded-xl">
           <iframe 
@@ -230,7 +230,7 @@ export default function FloatingCards({ mousePosition, getParallaxTransform }: F
       {/* Top Right - Portrait 3:4 */}
       <div 
         className="absolute top-[-5%] right-[5%] w-[280px] sm:w-[350px] lg:w-[400px] h-auto rounded-xl bg-gradient-to-br from-gray-900 to-black border border-white/10 backdrop-blur-sm shadow-2xl pointer-events-none hidden xl:block"
-        style={getParallaxTransform(-18, 0)}
+        style={getParallaxTransform(-18)}
       >
         <div className="overflow-hidden rounded-xl">
           {React.createElement('gecko-coin-price-chart-widget', {
@@ -248,7 +248,7 @@ export default function FloatingCards({ mousePosition, getParallaxTransform }: F
       {/* Left Side - Portrait 3:4 with Twitter Embed */}
       <div 
         className="absolute top-[40%] left-[8%] w-auto max-w-60 sm:max-w-72 lg:max-w-80 h-auto rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-white/10 backdrop-blur-sm shadow-2xl pointer-events-none hidden xl:block"
-        style={getParallaxTransform(25, 0)}
+        style={getParallaxTransform(25)}
       >
         <div className="w-full h-full overflow-hidden rounded-xl m-0">
           
@@ -265,7 +265,7 @@ export default function FloatingCards({ mousePosition, getParallaxTransform }: F
             }}
           >
             <p lang="en" dir="ltr">
-              And Grok said, "Let there be voice," and there was voice. 
+              And Grok said, &ldquo;Let there be voice,&rdquo; and there was voice. 
               <a href="https://t.co/BlGi0aKVDg">pic.twitter.com/BlGi0aKVDg</a>
             </p>
             &mdash; Grok (@grok) 
@@ -280,7 +280,7 @@ export default function FloatingCards({ mousePosition, getParallaxTransform }: F
       {/* Right Side - Portrait 3:4 */}
       <div 
         className="absolute top-[30%] right-[12%] w-auto max-w-60 sm:max-w-72 lg:max-w-80 h-auto rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-white/10 backdrop-blur-sm hover:scale-105 shadow-2xl hidden xl:block"
-        style={getParallaxTransform(-22, 0)}
+        style={getParallaxTransform(-22)}
       >
         <div>
           <blockquote 
@@ -300,7 +300,7 @@ export default function FloatingCards({ mousePosition, getParallaxTransform }: F
       {/* Bottom Left - Landscape 4:3 */}
       <div 
         className="absolute bottom-[2%] left-[10%] sm:left-[15%] lg:left-[20%] w-[320px] sm:w-[400px] lg:w-[500px] h-auto rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-white/10 backdrop-blur-sm shadow-2xl pointer-events-none hidden xl:block"
-        style={getParallaxTransform(28, 0)}
+        style={getParallaxTransform(28)}
       >
         <div className="rounded-xl overflow-hidden">
           {React.createElement('gecko-coin-list-widget', {
@@ -317,7 +317,7 @@ export default function FloatingCards({ mousePosition, getParallaxTransform }: F
       {/* Bottom Right - TikTok Embed */}
       <div 
         className="absolute bottom-[7%] right-[15%] sm:right-[20%] lg:right-[25%] w-auto h-auto rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-white/10 backdrop-blur-sm shadow-2xl pointer-events-none hidden xl:block"
-        style={getParallaxTransform(-25, 0)}
+        style={getParallaxTransform(-25)}
       >
         <div className="overflow-hidden rounded-xl">
           <iframe 
@@ -336,19 +336,19 @@ export default function FloatingCards({ mousePosition, getParallaxTransform }: F
         {/* Small mobile decorative elements */}
         <div 
           className="absolute top-[20%] right-[10%] w-6 h-6 rounded-full bg-white/20 blur-sm"
-          style={getParallaxTransform(8, 0)}
+          style={getParallaxTransform(8)}
         />
         <div 
           className="absolute bottom-[25%] left-[15%] w-8 h-8 rounded-full bg-blue-400/30 blur-sm"
-          style={getParallaxTransform(12, 0)}
+          style={getParallaxTransform(12)}
         />
         <div 
           className="absolute top-[60%] right-[20%] w-10 h-10 border border-white/10 rotate-45"
-          style={getParallaxTransform(10, 0)}
+          style={getParallaxTransform(10)}
         />
         <div 
           className="absolute bottom-[40%] left-[10%] w-12 h-12 border border-gray-400/20 rounded-full"
-          style={getParallaxTransform(14, 0)}
+          style={getParallaxTransform(14)}
         />
       </div>
       

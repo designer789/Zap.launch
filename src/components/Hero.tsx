@@ -44,7 +44,7 @@ export default function Hero() {
   }, []);
 
   // Parallax transform calculator with improved transitions
-  const getParallaxTransform = (intensity: number, rotation: number) => {
+  const getParallaxTransform = (intensity: number) => {
     const moveX = mousePosition.x * intensity;
     const moveY = mousePosition.y * intensity;
     
@@ -67,7 +67,6 @@ export default function Hero() {
       
       {/* Floating Background Cards */}
       <FloatingCards 
-        mousePosition={mousePosition}
         getParallaxTransform={getParallaxTransform}
       />
       
