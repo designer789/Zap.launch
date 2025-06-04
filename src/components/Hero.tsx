@@ -86,10 +86,12 @@ export default function Hero() {
         </div>
         
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center max-w-md sm:max-w-none mx-auto px-4 sm:px-0">
+          <a href="https://t.me/Zap_launch" rel="noopener noreferrer">
           <button className="bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-white/90 transition-all duration-200 transform hover:scale-105 w-full sm:w-auto hover:cursor-pointer">
             Join Telegram
           </button>
-          <a href="https://docs.zap.launch" target="_blank" rel="noopener noreferrer">
+             </a>
+          <a href="https://zap-launch.gitbook.io/docs" target="_blank" rel="noopener noreferrer">
           <button className="border border-white/30 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-base sm:text-lg hover:border-white hover:bg-white/5 transition-all duration-200 w-full sm:w-auto hover:cursor-pointer">
             Documentation
           </button>
